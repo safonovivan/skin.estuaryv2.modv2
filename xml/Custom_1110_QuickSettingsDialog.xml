@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1110">
+	<defaultcontrol always="true">9500</defaultcontrol>
+	<include>OpenClose_Left_v2</include>
+	<controls> 
+		<control type="group">
+			<include>MediaMenuCommon_v2</include>
+			<control type="fixedlist" id="9500">
+				<orientation>horizontal</orientation>
+				<left>103</left>
+				<top>120</top>
+				<width>462</width>
+				<bottom>-10</bottom>
+				<movement>6</movement>
+				<focusposition>1</focusposition>
+				<ondown>9600</ondown>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<focusedlayout height="95" width="180">
+					<control type="image">
+						<left>-16</left>
+						<top>-14</top>
+						<width>125</width>
+						<height>125</height>
+						<texture colordiffuse="button_focus">buttons/roundbutton-fo.png</texture>
+						<visible>ControlGroup(9600).HasFocus</visible>
+					</control>
+					<control type="group">
+						<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+						<control type="image">
+							<left>-16</left>
+							<top>-14</top>
+							<width>125</width>
+							<height>125</height>
+							<texture colordiffuse="button_focus">buttons/roundbutton-fo.png</texture>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>95</width>
+							<height>95</height>
+							<texture colordiffuse="button_focus">$INFO[ListItem.Art(thumb)]</texture>
+							<animation effect="fade" start="0" end="100" time="300" reversible="false">Focus</animation>
+						</control>
+						<control type="image">
+							<left>-16</left>
+							<top>-14</top>
+							<width>125</width>
+							<height>125</height>
+							<texture colordiffuse="50000000">buttons/roundbutton-fo.png</texture>
+						</control>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>95</width>
+						<height>95</height>
+						<texture>$INFO[ListItem.Art(thumb)]</texture>
+					</control>
+				</focusedlayout>
+				<itemlayout height="95" width="180">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>95</width>
+						<height>95</height>
+						<texture colordiffuse="44FFFFFF">$INFO[ListItem.Art(thumb)]</texture>
+					</control>
+				</itemlayout>
+				<content>
+					<item id="9501">
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(addonbrowser)</onclick>
+						<property name="menu_id">$NUMBER[50001]</property>
+						<thumb>icons/sidemenu/addons.png</thumb>
+						<property name="id">addonsqm</property>
+					</item>
+					<item id="9502">
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(settings)</onclick>
+						<property name="menu_id">$NUMBER[60001]</property>
+						<thumb>icons/sidemenu/manage.png</thumb>
+						<property name="id">settingsqm</property>
+					</item>
+					<item id="9503">
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>noop</onclick>
+						<property name="menu_id">$NUMBER[70001]</property>
+						<thumb>icons/sidemenu/actors.png</thumb>
+						<property name="id">otherqm</property>
+					</item>
+				</content>
+			</control>
+			<control type="group" id="9600">
+				<left>95</left>
+				<width>470</width>
+				<control type="grouplist" id="9610">
+					<top>240</top>
+					<bottom>140</bottom>
+					<onright>Control.SetFocus(9500,1)</onright>
+					<onleft>Control.SetFocus(9500,2)</onleft>
+					<onup>9500</onup>
+					<onback>9000</onback>
+					<visible>Container(9500).HasFocus(9501)</visible>
+					<control type="button" id="9611">
+						<label>$LOCALIZE[1037]</label>
+						<include>DefaultSettingButton</include>
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(videos,addons://sources/video/,return)</onclick>
+					</control>
+					<control type="button" id="9612">
+						<label>$LOCALIZE[1038]</label>
+						<include>DefaultSettingButton</include>
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(music,addons://sources/audio/,return)</onclick>
+					</control>
+					<control type="button" id="9613">
+						<label>$LOCALIZE[1043]</label>
+						<include>DefaultSettingButton</include>
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(programs,addons://sources/executable/,return)</onclick>
+					</control>
+					<control type="button" id="9614">
+						<label>$LOCALIZE[20244]</label>
+						<include>DefaultSettingButton</include>
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(programs,androidapp://sources/apps/,return)</onclick>
+						<visible>System.Platform.Android</visible>
+					</control>
+					<control type="button" id="9615">
+						<label>$LOCALIZE[1039]</label>
+						<include>DefaultSettingButton</include>
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(pictures,addons://sources/image/,return)</onclick>
+					</control>
+					<control type="button" id="9616">
+						<label>$LOCALIZE[24998]</label>
+						<include>DefaultSettingButton</include>
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(addonbrowser,addons://user/,return)</onclick>
+					</control>
+					<control type="button" id="9617">
+						<label>$LOCALIZE[33003]</label>
+						<include>DefaultSettingButton</include>
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(addonbrowser,addons://all/,return)</onclick>
+						<!-- Container.Content(addons) -->
+					</control>
+				</control>
+				<control type="grouplist" id="9620">
+					<top>240</top>
+					<bottom>140</bottom>
+					<onright>Control.SetFocus(9500,2)</onright>
+					<onleft>Control.SetFocus(9500,0)</onleft>
+					<onup>9500</onup>
+					<onback>9000</onback>
+					<visible>Container(9500).HasFocus(9502)</visible>
+					<control type="button" id="9621">
+						<label>1</label>
+						<include>DefaultSettingButton</include>
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(videos,addons://sources/video/,return)</onclick>
+					</control>
+					<control type="button" id="9622">
+						<label>2</label>
+						<include>DefaultSettingButton</include>
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(music,addons://sources/audio/,return)</onclick>
+					</control>
+					<control type="button" id="9623">
+						<label>3</label>
+						<include>DefaultSettingButton</include>
+						<onclick>Dialog.Close(1110)</onclick>
+						<onclick>ActivateWindow(programs,addons://sources/executable/,return)</onclick>
+					</control>
+				</control>
+				<control type="grouplist" id="9630">
+					<top>240</top>
+					<bottom>140</bottom>
+					<onright>Control.SetFocus(9500,0)</onright>
+					<onleft>Control.SetFocus(9500,1)</onleft>
+					<onup>9500</onup>
+					<onback>9000</onback>
+					<visible>Container(9500).HasFocus(9503)</visible>
+					<control type="button" id="9631">
+						<label>4</label>
+						<include>DefaultSettingButton</include>
+						<onclick>ActivateWindow(videos,addons://sources/video/,return)</onclick>
+					</control>
+					<control type="button" id="9632">
+						<label>25</label>
+						<include>DefaultSettingButton</include>
+						<onclick>ActivateWindow(music,addons://sources/audio/,return)</onclick>
+					</control>
+					<control type="button" id="9633">
+						<label>6</label>
+						<include>DefaultSettingButton</include>
+						<onclick>ActivateWindow(programs,addons://sources/executable/,return)</onclick>
+					</control>
+				</control>
+				<control type="image">
+					<description>Dialog Header image</description>
+					<left>0</left>
+					<bottom>340</bottom>
+					<right>0</right>
+					<height>3</height>
+					<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+				</control>
+				<control type="image">
+					<description>Dialog Header image</description>
+					<left>0</left>
+					<bottom>60</bottom>
+					<right>0</right>
+					<height>3</height>
+					<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+				</control>
+			</control>
+			<control type="group">
+				<top>40</top>
+				<left>65</left>
+				<control type="image">
+					<aspectratio>keep</aspectratio>
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="button_focus">icons/logo.png</texture>
+				</control>
+				<control type="image">
+					<left>164</left>
+					<top>14</top>
+					<aspectratio>keep</aspectratio>
+					<width>192</width>
+					<height>36</height>
+					<texture>icons/logo-text.png</texture>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
