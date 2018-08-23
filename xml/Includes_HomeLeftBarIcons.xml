@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+	<include name="LeftBarCategoriesIcons">
+		<control type="group">
+			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
+			<include>LeftBarMediaMenuCommon</include>
+			<control type="group" id="9500">
+			<include>OpenClose_Right</include>
+				<!--Фильмы-->
+				<control type="group" id="5000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),movies)</visible>
+					<control type="grouplist" id="5001">
+						<orientation>vertical</orientation>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<include content="LeftBarWidgetListCategories" condition="String.IsEqual(Skin.String(shift_categories),2) + Library.HasContent(movies)">
+							<param name="content_path" value="library://video/movies/"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="5900"/>
+						</include>
+					</control>
+				</control>
+				<!--Сериалы-->
+				<control type="group" id="6000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),tvshows)</visible>
+					<control type="grouplist" id="6001">
+						<orientation>vertical</orientation>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<include content="LeftBarWidgetListCategories" condition="String.IsEqual(Skin.String(shift_categories),2) + Library.HasContent(tvshows)">
+							<param name="content_path" value="library://video/tvshows/"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="6900"/>
+						</include>
+					</control>
+				</control>
+				<!--Музыка-->
+				<control type="group" id="7000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),music)</visible>
+					<control type="grouplist" id="7001">
+						<orientation>vertical</orientation>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<include content="LeftBarWidgetListCategories" condition="String.IsEqual(Skin.String(shift_categories),2) + Library.HasContent(music)">
+							<param name="content_path" value="library://music/"/>
+							<param name="widget_target" value="music"/>
+							<param name="list_id" value="7700"/>
+						</include>
+					</control>
+				</control>
+				<!--Музыкальное видео-->
+				<control type="group" id="16000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),musicvideos)</visible>
+					<control type="grouplist" id="16001">
+						<orientation>vertical</orientation>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<include content="LeftBarWidgetListCategories" condition="String.IsEqual(Skin.String(shift_categories),2) + Library.HasContent(musicvideos)">
+							<param name="content_path" value="library://music/musicvideos/"/>
+							<param name="widget_target" value="musicvideos"/>
+							<param name="list_id" value="16900"/>
+						</include>
+					</control>
+				</control>
+				<!--Дополнения-->
+				<control type="group" id="8000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),addons)</visible>
+					<control type="grouplist" id="8001">
+						<orientation>vertical</orientation>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<include content="LeftBarWidgetListCategories" condition="String.IsEqual(Skin.String(shift_categories),2)">
+							<param name="list_id" value="8900"/>
+							<param name="addon_submenu" value="true"/>
+						</include>
+					</control>
+				</control>
+				<!--Радио-->
+				<control type="group" id="13000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),radio)</visible>
+					<control type="grouplist" id="13001">
+						<orientation>vertical</orientation>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<include content="LeftBarWidgetListCategories" condition="String.IsEqual(Skin.String(shift_categories),2) + System.HasPVRAddon">
+							<param name="list_id" value="13900"/>
+							<param name="pvr_submenu" value="true"/>
+							<param name="pvr_type" value="Radio"/>
+						</include>
+					</control>
+				</control>
+				<!--ТВ-->
+				<control type="group" id="12000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),livetv)</visible>
+					<control type="grouplist" id="12001">
+						<orientation>vertical</orientation>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<include content="LeftBarWidgetListCategories" condition="String.IsEqual(Skin.String(shift_categories),2) + System.HasPVRAddon">
+							<param name="list_id" value="12900"/>
+							<param name="pvr_submenu" value="true"/>
+							<param name="pvr_type" value="TV"/>
+						</include>
+					</control>
+				</control>
+				<!--Видео-->
+				<control type="group" id="11000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),video)</visible>
+					<control type="grouplist" id="11001">
+						<orientation>vertical</orientation>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<include content="LeftBarWidgetListCategories" condition="String.IsEqual(Skin.String(shift_categories),2)">
+							<param name="content_path" value="library://video"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="11900"/>
+						</include>
+					</control>
+				</control>
+			</control>
+		</control>
+</include>
+	<include name="LeftBarWidgetListCategories">
+		<param name="item_limit">20</param>
+		<param name="icon">$INFO[ListItem.Icon]</param>
+		<param name="icon_height">80</param>
+		<param name="pvr_submenu">false</param>
+		<param name="addon_submenu">false</param>
+		<param name="pvr_type">TV</param>
+		<param name="visible">true</param>
+		<definition>
+			<top>70</top>
+			<bottom>70</bottom>
+			<control type="panel" id="$PARAM[list_id]">
+				<height>1010</height>
+				<width>462</width>
+				<visible>$PARAM[visible]</visible>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<onleft>SetFocus(9000)</onleft>
+				<onright>SetFocus(9000)</onright>
+				<onback>SetFocus(9000)</onback>
+				<itemlayout width="310" height="180">
+					<control type="group">
+						<left>30</left>
+<!-- 						<control type="image">
+							<width>316</width>
+							<height>200</height>
+							<texture>dialogs/dialog-bg-nobo.png</texture>
+							<bordertexture border="21">overlays/shadow.png</bordertexture>
+							<bordersize>20</bordersize>
+						</control> -->
+						<control type="image">
+							<centertop>74</centertop>
+							<left>62</left>
+							<width>200</width>
+							<height>$PARAM[icon_height]</height>
+							<texture fallback="DefaultFolder.png">$PARAM[icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="textbox">
+							<left>42</left>
+							<top>106</top>
+							<width>240</width>
+							<height>70</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font25_narrow</font>
+							<shadowcolor>text_shadow</shadowcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="310" height="180">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>30</left>
+						<animation type="Focus">
+							<effect type="zoom" start="100" end="150" time="200" tween="sine" easing="inout" center="88,130" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="150" end="100" time="200" tween="sine" easing="inout" center="88,130" />
+						</animation>
+<!-- 						<control type="image">
+							<width>316</width>
+							<height>200</height>
+							<texture>dialogs/dialog-bg-nobo.png</texture>
+							<bordertexture border="21">overlays/shadow.png</bordertexture>
+							<bordersize>20</bordersize>
+						</control> -->
+<!-- 						<control type="image">
+							<width>316</width>
+							<height>200</height>
+							<texture colordiffuse="button_focus">colors/grey.png</texture>
+							<bordersize>20</bordersize>
+							<include>Animation_FocusTextureFade</include>
+						</control> -->
+						<control type="image">
+							<centertop>74</centertop>
+							<left>62</left>
+							<width>200</width>
+							<height>$PARAM[icon_height]</height>
+							<texture  colordiffuse="button_focus" fallback="DefaultFolder.png">$PARAM[icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="textbox">
+							<left>42</left>
+							<top>106</top>
+							<width>240</width>
+							<height>70</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font25_narrow</font>
+							<textcolor>button_focus</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+						</control>
+					</control>
+				</focusedlayout>
+				<include condition="!$PARAM[pvr_submenu] + !$PARAM[addon_submenu]" content="SubmenuContent">
+					<param name="widget_target" value="$PARAM[widget_target]"/>
+					<param name="item_limit" value="$PARAM[item_limit]"/>
+					<param name="content_path" value="$PARAM[content_path]"/>
+				</include>
+				<include condition="$PARAM[pvr_submenu]" content="PVRSubMenuContent">
+					<param name="pvr_type" value="$PARAM[pvr_type]"/>
+				</include>
+				<include condition="$PARAM[addon_submenu]">AddonSubMenuContent</include>
+			</control>
+		</definition>
+	</include>
+	<include name="LeftBarMediaMenuCommon">
+		<include>OpenClose_Left_v2</include>
+		<depth>DepthSideBlade</depth>
+		<left>-462</left>
+		<animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">
+			<effect type="slide" start="0" end="557" time="300" tween="cubic" easing="out" />
+		</animation>
+		<control type="image">
+			<width>4000</width>
+			<height>100%</height>
+			<aspectratio>scale</aspectratio>
+			<texture colordiffuse="80FFFFFF">colors/black.png</texture>
+			<visible>$EXP[sidebar_visible] + !System.HasModalDialog</visible>
+			<animation effect="fade" time="200">VisibleChange</animation>
+		</control>
+		<control type="image">
+			<width>462</width>
+			<top>35</top>
+			<bottom>35</bottom>
+			<texture border="0,0,52,0">lists/panel-mediamenu.png</texture>
+		</control>
+	</include>	
+</includes>

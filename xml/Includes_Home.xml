@@ -19,6 +19,33 @@
 				<height>90</height>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+<!-- 				<control type="label">
+					<left>22</left>
+					<top>0</top>
+					<right>2</right>
+					<height>90</height>
+					<label>$PARAM[label]</label>
+					<font>font25_title</font>
+					<shadowcolor>text_shadow</shadowcolor>
+				</control>
+				<control type="label">
+					<left>22</left>
+					<top>0</top>
+					<right>2</right>
+					<height>90</height>
+					<width max="1350">auto</width>
+					<label>$PARAM[label] |$INFO[Container($PARAM[list_id]).Listitem.Label, [B],[/B]]</label>
+					<font>font25_title</font>
+					<shadowcolor>text_shadow</shadowcolor>
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
+				</control> -->
+				<control type="image">
+					<left>2</left>
+					<top>13</top>
+					<width>11</width>
+					<height>11</height>
+					<texture colordiffuse="$VAR[SkinColorVar]">frame/puce.png</texture>
+				</control>
 				<control type="label">
 					<left>22</left>
 					<top>0</top>
@@ -37,8 +64,7 @@
 					<label>$PARAM[label] |$INFO[Container($PARAM[list_id]).Listitem.Label, [B],[/B]]</label>
 					<font>font25_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
-					<!-- опция, настройки -->
-					<visible>Control.HasFocus($PARAM[list_id])</visible>
+					<visible>Control.HasFocus($PARAM[list_id]) + Skin.HasSetting(LabelFocusWidget)</visible>
 				</control>
 			</control>
 		</definition>
@@ -53,6 +79,13 @@
 				<height>90</height>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<control type="image">
+					<left>2</left>
+					<top>13</top>
+					<width>11</width>
+					<height>11</height>
+					<texture colordiffuse="$VAR[SkinColorVar]">frame/puce.png</texture>
+				</control>
 				<control type="label">
 					<left>22</left>
 					<top>0</top>
@@ -70,8 +103,7 @@
 					<label>$PARAM[label] |$INFO[Container($PARAM[list_id]).ListItem.Property(ShortDate), [COLOR white][B],[/B][/COLOR]] $INFO[Container($PARAM[list_id]).Listitem.Label, [COLOR white][B],[/B][/COLOR]] $INFO[Container($PARAM[list_id]).Listitem.Label2, [COLOR white][B],[/B][/COLOR]]</label>
 					<font>font25_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
-					<!-- опция, настройки -->
-					<visible>Control.HasFocus($PARAM[list_id])</visible>
+					<visible>Control.HasFocus($PARAM[list_id]) + Skin.HasSetting(LabelFocusWidget)</visible>
 				</control>
 			</control>
 		</definition>
@@ -113,10 +145,12 @@
 		</control>
 	</include>
 	<include name="WidgetListPoster">
+		<param name="visible">true</param>
 		<definition>
-			<include content="CategoryLabel">
+ 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="visible" value="$PARAM[visible]"/>
 			</include>
 			<include content="BusyListSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -131,6 +165,7 @@
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
+				<visible>$PARAM[visible]</visible>
 				<itemlayout width="310" height="486">
 					<control type="group">
 						<left>68</left>
@@ -230,6 +265,7 @@
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="visible" value="$PARAM[visible]"/>
 			</include>
 			<include content="BusyListSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -291,6 +327,7 @@
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="visible" value="$PARAM[visible]"/>
 			</include>
 			<include content="BusyListSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -690,6 +727,7 @@
 							<texture>dialogs/dialog-bg-nobo.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
+							<visible>!Skin.HasSetting(Weatherbackgroundoff)</visible>
 						</control>
 						<control type="image">
 							<left>60</left>
@@ -727,12 +765,8 @@
 					<control type="group">
 						<left>70</left>
 						<depth>DepthContentPopout</depth>
-						<animation type="Focus">
-							<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="180,140" />
-						</animation>
-						<animation type="Unfocus">
-							<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="180,140" />
-						</animation>
+						<include condition="Skin.HasSetting(Weatherbackgroundoff)">Focus_big</include>
+						<include condition="!Skin.HasSetting(Weatherbackgroundoff)">Focus_std</include>
 						<control type="image">
 							<left>0</left>
 							<top>20</top>
@@ -741,6 +775,7 @@
 							<texture>dialogs/dialog-bg-nobo.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
+							<visible>!Skin.HasSetting(Weatherbackgroundoff)</visible>
 						</control>
 						<control type="image">
 							<left>0</left>
@@ -750,6 +785,7 @@
 							<texture colordiffuse="button_focus">colors/grey.png</texture>
 							<bordersize>20</bordersize>
 							<include>Animation_FocusTextureFade</include>
+							<visible>!Skin.HasSetting(Weatherbackgroundoff)</visible>
 						</control>
 						<control type="image">
 							<left>60</left>
@@ -917,8 +953,8 @@
 				<top>100</top>
 				<width>1820</width>
 				<height>920</height>
-				<texture>dialogs/dialog-bg-nobo.png</texture>
-				<bordertexture border="21">overlays/shadow.png</bordertexture>
+				<!-- <texture>dialogs/dialog-bg-nobo.png</texture> -->
+				<!-- <bordertexture border="21">overlays/shadow.png</bordertexture> -->
 				<bordersize>20</bordersize>
 			</control>
 			<control type="image" id="700$PARAM[item_id]2">
@@ -972,10 +1008,7 @@
 		<onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
 		<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 		<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
-		<onback>PageUp</onback>
-		<onback>PageUp</onback>
-		<onback>PageUp</onback>
-		<onback>PageUp</onback>
+		<onback>FirstPage</onback>
 		<preloaditems>2</preloaditems>
 	</include>
 	<include name="BusyListSpinner">

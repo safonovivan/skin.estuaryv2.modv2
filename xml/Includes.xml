@@ -2,10 +2,13 @@
 <includes>
 	<include file="Defaults.xml" />
 	<include file="Includes_Home.xml" />
-	<include file="Includes_HomeMainMenu.xml" />
-	<include file="Includes_HomeWidgetMenu.xml" />
 	<include file="Includes_Animations.xml" />
 	<include file="Includes_MediaMenu.xml" />
+	<include file="Includes_HomeMainMenu.xml" />
+	<include file="Includes_HomeWidgetMenu.xml" />
+	<include file="Includes_UserWidgets.xml" />
+	<include file="Includes_HomeArtistSlideShow.xml" />
+	<include file="Includes_HomeLeftBarIcons.xml" />
 	<include file="Includes_Buttons.xml" />
 	<include file="Includes_PVR.xml" />
 	<include file="View_50_List.xml" />
@@ -36,7 +39,7 @@
 	<constant name="list_y_offset">0</constant>
 	<constant name="list_item_height">80</constant>
 	<expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)</expression>
-	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | ControlGroup(9600).HasFocus | Control.HasFocus(6130) | Control.HasFocus(9500) | Window.IsActive(MyPlaylist.xml)</expression>
+	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(9500) | ControlGroup(9600).HasFocus | ControlGroup(9500).HasFocus | Control.HasFocus(6130) | Window.IsActive(MyPlaylist.xml)</expression>
 	<include name="CommonScrollbars">
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
@@ -1010,6 +1013,13 @@
 						<aspectratio aligny="center" align="left">keep</aspectratio>
 						<texture>$INFO[Weather.FanartCode,weather/small/,.png]</texture>
 						<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na)]</visible>
+					</control>
+					<control type="label">
+						<height>50</height>
+						<width>auto</width>
+						<aligny>center</aligny>
+						<label> $INFO[System.Date] </label>
+						<visible>Skin.HasSetting(show_datatopbar)</visible>
 					</control>
 					<control type="image">
 						<top>8</top>

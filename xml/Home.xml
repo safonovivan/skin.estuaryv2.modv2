@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot1))">Skin.SetString(homemenu_slot1,1)</onload>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot2))">Skin.SetString(homemenu_slot2,2)</onload>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot3))">Skin.SetString(homemenu_slot3,3)</onload>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot4))">Skin.SetString(homemenu_slot4,4)</onload>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot5))">Skin.SetString(homemenu_slot5,5)</onload>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot6))">Skin.SetString(homemenu_slot6,6)</onload>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot7))">Skin.SetString(homemenu_slot7,7)</onload>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot8))">Skin.SetString(homemenu_slot8,8)</onload>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot9))">Skin.SetString(homemenu_slot9,9)</onload>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot10))">Skin.SetString(homemenu_slot10,10)</onload>
+	<onload condition="String.IsEmpty(Skin.String(homemenu_slot11))">Skin.SetString(homemenu_slot11,11)</onload>
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
@@ -27,13 +38,16 @@
 			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true" colordiffuse="bg_overlay">$VAR[HomeFanartVar]</imagepath>
+			<!-- <imagepath background="true" colordiffuse="bg_overlay">$VAR[HomeFanartVar]</imagepath> -->
+			<imagepath background="true" colordiffuse="$VAR[Background_Opacity]">$VAR[HomeFanartVar]</imagepath>
 			<visible>!Player.HasMedia</visible>
 		</control>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
-			<include>HomeMainMenu</include>
+			<!--область с виджетами-->			
 			<include>HomeWidgetMenu</include>
+			<!--панель кнопок-->			
+			<include>HomeMainMenu</include>
 			<include>BottomBar</include>
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="" />
@@ -43,7 +57,6 @@
 				<include>OpenClose_Left_v2</include>
 				<include>HomeSystemButtonsTop</include>
 			</control>
-			<include>HomeMenuQuickSettings</include>
 			<control type="rss">
 				<animation effect="slide" end="0,90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>

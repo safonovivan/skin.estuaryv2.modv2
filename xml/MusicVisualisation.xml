@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
+	<onload condition="System.HasAddon(script.artistslideshow)">RunScript(script.artistslideshow)</onload>
 	<defaultcontrol></defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
@@ -7,29 +8,71 @@
 			<include>FullScreenDimensions</include>
 			<visible>Player.HasAudio</visible>
 		</control>
-		<control type="image">
-			<left>0</left>
-			<top>0</top>
-			<width>100%</width>
-			<height>100%</height>
-			<aspectratio>scale</aspectratio>
-			<fadetime>400</fadetime>
-			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-			<texture background="true" colordiffuse="88FFFFFF">$INFO[Player.Art(fanart)]</texture>
-		</control>
+ 		<include>HomeArtistSlideShow</include>
 		<control type="group">
 			<animation effect="fade" start="100" end="30" time="0" condition="!String.IsEmpty(Player.Art(fanart)) | Visualisation.Enabled">Conditional</animation>
 			<include>ColoredBackgroundImages</include>
 		</control>
+		<control type="label" >
+			<left>20</left>
+			<top>800</top>
+			<height>40</height>
+			<width>800</width>
+			<font>font35_title</font>
+			<align>left</align>
+			<label>$LOCALIZE[31201]</label>
+		</control>
+		<control type="label" description="Progress time label">
+			<left>20</left>
+			<top>850</top>
+			<height>40</height>
+			<width>800</width>
+			<font>font35</font>
+			<align>left</align>
+			<scroll>true</scroll>
+			<label>$INFO[MusicPlayer.Offset(1).Title]$INFO[MusicPlayer.Offset(1).Artist, - ,]$INFO[MusicPlayer.Offset(1).Duration, - ,]</label>
+			<visible>!String.IsEmpty(MusicPlayer.Offset(1).Title) + String.IsEmpty(Control.GetLabel(1001))</visible>
+		</control>
+		<control type="group">
+					<left>20</left>
+					<bottom>590</bottom>
+					<control type="label">
+						<bottom>0</bottom>
+						<width>800</width>
+						<height>40</height>
+						<label>$INFO[MusicPlayer.Artist]</label>
+						<font>font37_title</font>
+						<shadowcolor>black</shadowcolor>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<bottom>-50</bottom>
+						<width>800</width>
+						<height>40</height>
+						<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year,[COLOR button_focus] [,][/COLOR]]</label>
+						<font>font35</font>
+						<shadowcolor>black</shadowcolor>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<bottom>-100</bottom>
+						<width>800</width>
+						<height>40</height>
+						<label>$INFO[MusicPlayer.TrackNumber,,: ][COLOR=white]$INFO[Player.Title][/COLOR]</label>
+						<font>font35</font>
+						<shadowcolor>black</shadowcolor>
+						<textcolor>button_focus</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
 		<control type="group">
 			<bottom>0</bottom>
 			<height>1080</height>
-			<include>OpenClose_Left</include>
+			<include>OpenClose_Right</include>
 			<control type="image">
-				<left>33</left>
-				<top>200</top>
-				<include>Visible_Left</include>
+				<right>33</right>
+				<bottom>150</bottom>
+				<include>Visible_Right</include>
 				<visible>Player.ShowInfo | Window.IsActive(musicosd)</visible>
 				<width>500</width>
 				<height>500</height>
@@ -43,12 +86,12 @@
 				<top>-30</top>
 				<visible>[Player.ShowInfo | Window.IsActive(musicosd)] + !Window.IsActive(playerprocessinfo)</visible>
 				<include>Visible_Left</include>
-				<control type="group">
+				<!-- <control type="group">
 					<left>30</left>
 					<top>740</top>
 					<control type="label">
 						<top>0</top>
-						<width>1600</width>
+						<width>800</width>
 						<height>40</height>
 						<label>$INFO[MusicPlayer.Artist]</label>
 						<font>font60</font>
@@ -57,7 +100,7 @@
 					</control>
 					<control type="label">
 						<top>80</top>
-						<width>1600</width>
+						<width>800</width>
 						<height>40</height>
 						<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year,[COLOR button_focus] [,][/COLOR]]</label>
 						<font>font37</font>
@@ -66,7 +109,7 @@
 					</control>
 					<control type="label">
 						<top>127</top>
-						<width>1600</width>
+						<width>800</width>
 						<height>40</height>
 						<label>$INFO[MusicPlayer.TrackNumber,,: ][COLOR=white]$INFO[Player.Title][/COLOR]</label>
 						<font>font45</font>
@@ -74,7 +117,7 @@
 						<textcolor>button_focus</textcolor>
 						<scroll>true</scroll>
 					</control>
-				</control>
+				</control> -->
 			</control>
 		</control>
 	</controls>

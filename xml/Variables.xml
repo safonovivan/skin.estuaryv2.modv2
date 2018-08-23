@@ -172,6 +172,10 @@
 		<value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
 	</variable>
+	<!-- <variable name="ListPosterVar"> -->
+		<!-- <value condition="ListItem.IsParentFolder">DefaultFolderBackPoster.png</value> -->
+		<!-- <value>$INFO[ListItem.Art(poster)]</value> -->
+	<!-- </variable> -->
 	<variable name="BannerLabel2Var">
 		<value condition="String.IsEqual(Listitem.DBType,tvshow)">$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</value>
 		<!-- <value>$INFO[ListItem.Year]</value>
@@ -273,26 +277,67 @@
 	<variable name="HomeFanartVar">
 		<value condition="Skin.HasSetting(no_fanart)"></value>
 		<value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)">$INFO[Window(home).Property(infobackground)]</value>
-		<value condition="!String.IsEmpty(Container(5100).ListItem.Art(fanart)) + Control.HasFocus(5100)">$INFO[Container(5100).ListItem.Art(fanart)]</value>
+		<!-- Movies -->
 		<value condition="!String.IsEmpty(Container(5200).ListItem.Art(fanart)) + Control.HasFocus(5200)">$INFO[Container(5200).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(5300).ListItem.Art(fanart)) + Control.HasFocus(5300)">$INFO[Container(5300).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(5400).ListItem.Art(fanart)) + Control.HasFocus(5400)">$INFO[Container(5400).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(5600).ListItem.Art(fanart)) + Control.HasFocus(5600)">$INFO[Container(5600).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(5700).ListItem.Art(fanart)) + Control.HasFocus(5700)">$INFO[Container(5700).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(5100).ListItem.Art(fanart)) + Control.HasFocus(5100) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_video)]">$INFO[Container(5100).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(5100).ListItem.Property(AddonFanart)) + Control.HasFocus(5100) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_video)">$INFO[Container(5100).ListItem.Property(AddonFanart)]</value>
+		<!-- TVSeries -->
 		<value condition="!String.IsEmpty(Container(6100).ListItem.Art(fanart)) + Control.HasFocus(6100)">$INFO[Container(6100).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(6200).ListItem.Art(fanart)) + Control.HasFocus(6200)">$INFO[Container(6200).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(6300).ListItem.Art(fanart)) + Control.HasFocus(6300)">$INFO[Container(6300).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(6400).ListItem.Art(fanart)) + Control.HasFocus(6400)">$INFO[Container(6400).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6500).ListItem.Art(fanart)) + Control.HasFocus(6500) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_tvseries)]">$INFO[Container(6500).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6500).ListItem.Property(AddonFanart)) + Control.HasFocus(6500) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_tvseries)">$INFO[Container(6500).ListItem.Property(AddonFanart)]</value>
+		<!-- Music -->
 		<value condition="!String.IsEmpty(Container(7100).ListItem.Art(fanart)) + Control.HasFocus(7100)">$INFO[Container(7100).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(7200).ListItem.Art(fanart)) + Control.HasFocus(7200)">$INFO[Container(7200).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(7300).ListItem.Art(fanart)) + Control.HasFocus(7300)">$INFO[Container(7300).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(7400).ListItem.Art(fanart)) + Control.HasFocus(7400)">$INFO[Container(7400).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(7500).ListItem.Art(fanart)) + Control.HasFocus(7500)">$INFO[Container(7400).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(7600).ListItem.Art(fanart)) + Control.HasFocus(7600)">$INFO[Container(7400).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(7900).ListItem.Art(fanart)) + Control.HasFocus(7900) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_audio)]">$INFO[Container(7900).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(7900).ListItem.Property(AddonFanart)) + Control.HasFocus(7900) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_audio)">$INFO[Container(7900).ListItem.Property(AddonFanart)]</value>
+		<!-- Addons -->
+		<!-- <value condition="!String.IsEmpty(Container(8100).ListItem.Art(fanart)) + Control.HasFocus(8100) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_video)]">$INFO[Container(8100).ListItem.Art(fanart)]</value> -->
+		<!-- <value condition="!String.IsEmpty(Container(8100).ListItem.Property(AddonFanart)) + Control.HasFocus(8100) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_video)">$INFO[Container(8100).ListItem.Property(AddonFanart)]</value> -->
+		<!-- <value condition="!String.IsEmpty(Container(8200).ListItem.Art(fanart)) + Control.HasFocus(8200) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_audio)]">$INFO[Container(8200).ListItem.Art(fanart)]</value> -->
+		<!-- <value condition="!String.IsEmpty(Container(8200).ListItem.Property(AddonFanart)) + Control.HasFocus(8200) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_audio)">$INFO[Container(8200).ListItem.Property(AddonFanart)]</value> -->
+		<!-- <value condition="!String.IsEmpty(Container(8300).ListItem.Art(fanart)) + Control.HasFocus(8300) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_programs)]">$INFO[Container(8300).ListItem.Art(fanart)]</value> -->
+		<!-- <value condition="!String.IsEmpty(Container(8300).ListItem.Property(AddonFanart)) + Control.HasFocus(8300) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_programs)">$INFO[Container(8300).ListItem.Property(AddonFanart)]</value>		 -->
+		<!-- <value condition="!String.IsEmpty(Container(8400).ListItem.Art(fanart)) + Control.HasFocus(8400) + System.Platform.Android + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_apps)]">$INFO[Container(8400).ListItem.Art(fanart)]</value>		 -->
+		<!-- <value condition="!String.IsEmpty(Container(8500).ListItem.Art(fanart)) + Control.HasFocus(8500) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_image)]">$INFO[Container(8500).ListItem.Art(fanart)]</value> -->
+		<!-- <value condition="!String.IsEmpty(Container(8500).ListItem.Property(AddonFanart)) + Control.HasFocus(8500) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_image)">$INFO[Container(8500).ListItem.Property(AddonFanart)]</value>		 -->
 		<value condition="!String.IsEmpty(Container(8100).ListItem.Art(fanart)) + Control.HasFocus(8100)">$INFO[Container(8100).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(8200).ListItem.Art(fanart)) + Control.HasFocus(8200)">$INFO[Container(8200).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(8300).ListItem.Art(fanart)) + Control.HasFocus(8300)">$INFO[Container(8300).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(8400).ListItem.Art(fanart)) + Control.HasFocus(8400)">$INFO[Container(8400).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(8500).ListItem.Art(fanart)) + Control.HasFocus(8500)">$INFO[Container(8500).ListItem.Art(fanart)]</value>
+		<!-- Video -->
+		<value condition="!String.IsEmpty(Container(11200).ListItem.Art(fanart)) + Control.HasFocus(11200) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_video_item)]">$INFO[Container(11200).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(11200).ListItem.Property(AddonFanart)) + Control.HasFocus(11200) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_video_item)">$INFO[Container(11200).ListItem.Property(AddonFanart)]</value>
+		<!-- PVR -->
+		<value condition="!String.IsEmpty(Container(12401).ListItem.Art(fanart)) + Control.HasFocus(12401) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_video_tv)]">$INFO[Container(12401).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(12401).ListItem.Property(AddonFanart)) + Control.HasFocus(12401) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_video_tv)">$INFO[Container(12401).ListItem.Property(AddonFanart)]</value>
+		<value condition="!String.IsEmpty(Container(12500).ListItem.Art(fanart)) + Control.HasFocus(12500) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_programs_tv)]">$INFO[Container(12500).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(12500).ListItem.Property(AddonFanart)) + Control.HasFocus(12500) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_programs_tv)">$INFO[Container(12500).ListItem.Property(AddonFanart)]</value>
+		<value condition="!String.IsEmpty(Container(13400).ListItem.Art(fanart)) + Control.HasFocus(13400) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_audio_radio)]">$INFO[Container(13400).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(13400).ListItem.Property(AddonFanart)) + Control.HasFocus(13400) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_audio_radio)">$INFO[Container(13400).ListItem.Property(AddonFanart)]</value>
+		<value condition="!String.IsEmpty(Container(13600).ListItem.Art(fanart)) + Control.HasFocus(13600) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_programs_radio)]">$INFO[Container(13600).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(13600).ListItem.Property(AddonFanart)) + Control.HasFocus(13600) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_programs_radio)">$INFO[Container(13600).ListItem.Property(AddonFanart)]</value>
+		<!-- Foto -->
+		<value condition="!String.IsEmpty(Container(4200).ListItem.Art(fanart)) + Control.HasFocus(4200) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_image)]">$INFO[Container(4200).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(4200).ListItem.Property(AddonFanart)) + Control.HasFocus(4200) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_image)">$INFO[Container(4200).ListItem.Property(AddonFanart)]</value>
+		<!-- Music Video -->
+		<value condition="!String.IsEmpty(Container(16100).ListItem.Art(fanart)) + Control.HasFocus(16100) + ![Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_music_video)]">$INFO[Container(16100).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(16100).ListItem.Property(AddonFanart)) + Control.HasFocus(16100) + Skin.HasSetting(enable_custom_list_addons) + Skin.HasSetting(enable_custom_list_addons_music_video)">$INFO[Container(16100).ListItem.Property(AddonFanart)]</value>
+		<!-- Weather -->
 		<value condition="!String.IsEmpty(Container(15100).ListItem.Property(FanartCode)) + Control.HasFocus(15100)">$INFO[Skin.String(WeatherFanart.path)]$INFO[Container(15100).ListItem.Property(FanartCode)]$INFO[Skin.String(WeatherFanart.ext)]</value>
 		<value condition="!String.IsEmpty(Container(15200).ListItem.Property(FanartCode)) + Control.HasFocus(15200)">$INFO[Skin.String(WeatherFanart.path)]$INFO[Container(15200).ListItem.Property(FanartCode)]$INFO[Skin.String(WeatherFanart.ext)]</value>
+		<!-- Global -->
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path)) + Control.HasFocus(804)">$INFO[Skin.String(HomeFanart.path)]power$INFO[Skin.String(HomeFanart.ext)]</value>
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path)) + Control.HasFocus(802)">$INFO[Skin.String(HomeFanart.path)]settings$INFO[Skin.String(HomeFanart.ext)]</value>
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path)) + Control.HasFocus(803)">$INFO[Skin.String(HomeFanart.path)]favorites$INFO[Skin.String(HomeFanart.ext)]</value>
@@ -424,4 +469,214 @@
 		<value condition="String.IsEqual(Skin.String(background_overlay),0)">$LOCALIZE[231]</value>
 		<value>$INFO[Skin.String(background_overlay),$LOCALIZE[467] ]</value>
 	</variable>
-</includes>
+	<!-- Переключатель категорий -->
+	<variable name="ShiftCategoriesTypeVar">
+		<value condition="String.IsEmpty(Skin.String(shift_categories))">$LOCALIZE[31204]</value>		
+		<value condition="String.IsEqual(Skin.String(shift_categories),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(shift_categories),1)">$LOCALIZE[31204]</value>
+		<value condition="String.IsEqual(Skin.String(shift_categories),2)">$LOCALIZE[31206]</value>
+	</variable>
+	<!-- Сортировка меню -->
+	<variable name="HomeMenuSlot1Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot1),11)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="HomeMenuSlot2Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot2),11)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="HomeMenuSlot3Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot3),11)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="HomeMenuSlot4Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot4),11)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="HomeMenuSlot5Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot5),11)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="HomeMenuSlot6Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot6),11)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="HomeMenuSlot7Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot7),11)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="HomeMenuSlot8Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot8),11)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="HomeMenuSlot9Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot9),11)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="HomeMenuSlot10Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot10),11)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="HomeMenuSlot11Var">
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),0)">$LOCALIZE[351]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),1)">$LOCALIZE[342]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),2)">$LOCALIZE[20343]</value>	
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),3)">$LOCALIZE[2]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),4)">$LOCALIZE[20389]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),5)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),6)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),7)">$LOCALIZE[24001]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),8)">$LOCALIZE[1]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),9)">$LOCALIZE[3]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),10)">$LOCALIZE[10134]</value>
+		<value condition="String.IsEqual(Skin.String(homemenu_slot11),11)">$LOCALIZE[8]</value>
+	</variable>
+    <variable name="OpacitySettingLabel2Var">
+		<value condition="Skin.HasSetting(opacity_0)">0%</value>
+		<value condition="Skin.HasSetting(opacity_5)">5%</value>
+		<value condition="Skin.HasSetting(opacity_10)">10%</value>
+		<value condition="Skin.HasSetting(opacity_15)">15%</value>
+		<value condition="Skin.HasSetting(opacity_20)">20%</value>
+		<value condition="Skin.HasSetting(opacity_25)">25%</value>
+		<value condition="Skin.HasSetting(opacity_30)">30%</value>
+		<value condition="Skin.HasSetting(opacity_35)">35%</value>
+		<value condition="Skin.HasSetting(opacity_40)">40%</value>
+		<value condition="Skin.HasSetting(opacity_45)">45%</value>
+		<value condition="Skin.HasSetting(opacity_50)">50%</value>
+		<value condition="Skin.HasSetting(opacity_55)">55%</value>
+		<value condition="Skin.HasSetting(opacity_60)">60%</value>
+		<value condition="Skin.HasSetting(opacity_65)">65%</value>
+		<value condition="Skin.HasSetting(opacity_70)">70%</value>
+		<value condition="Skin.HasSetting(opacity_75)">75%</value>
+		<value condition="Skin.HasSetting(opacity_80)">80%</value>
+		<value condition="Skin.HasSetting(opacity_85)">85%</value>
+		<value condition="Skin.HasSetting(opacity_90)">90%</value>
+		<value condition="Skin.HasSetting(opacity_95)">95%</value>
+		<value condition="Skin.HasSetting(opacity_100)">100%</value>
+		<value>$LOCALIZE[15109]</value>
+	</variable>
+    <variable name="Background_Opacity">
+        <value condition="Skin.HasSetting(opacity_0)">00FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_5)">0DFFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_10)">1AFFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_15)">26FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_20)">33FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_25)">40FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_30)">4DFFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_35)">59FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_40)">66FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_45)">73FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_50)">80FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_55)">8CFFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_60)">99FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_65)">A6FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_70)">B3FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_75)">BFFFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_80)">CCFFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_85)">D9FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_90)">E6FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_95)">F2FFFFFF</value>
+        <value condition="Skin.HasSetting(opacity_100)">FFFFFFFF</value>
+        <value>37FFFFFF</value>
+    </variable>
+	</includes>

@@ -164,33 +164,6 @@
 			</control>
 		</definition>
 	</include>
-	<!-- <include name="IconButton_v2">
-		<param name="height">120</param>
-		<param name="visible">true</param>
-		<definition>
-			<control type="radiobutton" id="$PARAM[control_id]">
-				<width>120</width>
-				<height>$PARAM[height]</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<onclick>$PARAM[onclick]</onclick>
-				<onclick>$PARAM[onclick_2]</onclick>
-				<font></font>
-				<label>$PARAM[label]</label>
-				<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
-				<texturenofocus />
-				<radioposx>40</radioposx>
-				<radioposy>0</radioposy>
-				<radiowidth>40</radiowidth>
-				<radioheight>40</radioheight>
-				<textureradioonfocus>$PARAM[icon]</textureradioonfocus>
-				<textureradioonnofocus colordiffuse="white">$PARAM[icon]</textureradioonnofocus>
-				<textureradioofffocus>$PARAM[icon]</textureradioofffocus>
-				<textureradiooffnofocus colordiffuse="white">$PARAM[icon]</textureradiooffnofocus>
-				<visible>$PARAM[visible]</visible>
-			</control>
-		</definition>
-	</include> -->
 	<include name="IconButton_v3">
 		<param name="height">100</param>
 		<param name="visible">true</param>
@@ -231,14 +204,12 @@
 				<onclick>$PARAM[onclick_2]</onclick>
 				<font></font>
 				<label>$PARAM[label]</label>
-				<!-- <texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus> -->
 				<texturefocus />
 				<texturenofocus />
 				<radioposx>30</radioposx>
 				<radioposy>0</radioposy>
 				<radiowidth>60</radiowidth>
 				<radioheight>60</radioheight>
-				<!-- selected -->
 				<textureradioonfocus colordiffuse="button_focus">$PARAM[icon]</textureradioonfocus>
 				<textureradioonnofocus colordiffuse="grey">$PARAM[icon]</textureradioonnofocus>
 				<textureradioofffocus colordiffuse="button_focus">$PARAM[icon]</textureradioofffocus>
