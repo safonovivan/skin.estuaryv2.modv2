@@ -112,10 +112,6 @@ msgctxt "#31025"
 msgid "No favourites found. You can add any item from media views to this list by using the context menu."
 msgstr "No favorites found. You can add any item from media views to this list by using the context menu."
 
-msgctxt "#31026"
-msgid "Timeshift"
-msgstr "Timeshift"
-
 msgctxt "#31028"
 msgid "Show fanart"
 msgstr "Show fanart"
@@ -123,10 +119,6 @@ msgstr "Show fanart"
 msgctxt "#31029"
 msgid "Last logged in"
 msgstr "Last logged in"
-
-msgctxt "#31030"
-msgid "System memory usage"
-msgstr "System memory usage"
 
 msgctxt "#31031"
 msgid "Version info"
@@ -224,10 +216,6 @@ msgctxt "#31061"
 msgid "Main menu items"
 msgstr "Main menu items"
 
-msgctxt "#31062"
-msgid "Choose weather fanart pack"
-msgstr "Choose weather fanart pack"
-
 msgctxt "#31063"
 msgid "Sections"
 msgstr "Sections"
@@ -315,10 +303,6 @@ msgstr "Channel options"
 msgctxt "#31098"
 msgid "Select your Kodi user profile[CR]to login and continue"
 msgstr "Select your Kodi user profile[CR]to login and continue"
-
-msgctxt "#31099"
-msgid "IconWall"
-msgstr "IconWall"
 
 msgctxt "#31100"
 msgid "Shift"
@@ -436,10 +420,6 @@ msgctxt "#31130"
 msgid "Main menu-related settings: Configure the home screen to your likings."
 msgstr "Main menu-related settings: Configure the home screen to your likings."
 
-msgctxt "#31131"
-msgid "Choose skin fanart pack"
-msgstr "Choose skin fanart pack"
-
 msgctxt "#31132"
 msgid "min"
 msgstr "min"
@@ -476,70 +456,246 @@ msgctxt "#31142"
 msgid "Play speed"
 msgstr "Play speed"
 
-msgctxt "#31143"
-msgid "You did not set up PVR yet. In order to use PVR, choose a PVR client addon and configure it. Please visit http://kodi.wiki/view/PVR to learn more."
-msgstr "You did not set up PVR yet. In order to use PVR, choose a PVR client addon and configure it. Please visit http://kodi.wiki/view/PVR to learn more."
-
 msgctxt "#31144"
 msgid "Enter add-on browser"
 msgstr "Enter add-on browser"
 
-msgctxt "#31145"
-msgid "Search add-ons"
-msgstr "Search add-ons"
+msgctxt "#31200"
+msgid "Widgets"
+msgstr "Widgets"
 
-msgctxt "#31148"
-msgid "Categories"
-msgstr "Categories"
+msgctxt "#31201"
+msgid "Next track"
+msgstr "Next track"
 
-msgctxt "#31149"
-msgid "Select genre fanart pack"
-msgstr "Select genre fanart pack"
+# EXTENDED ADDED VALUE SAFONOV_IVAN
 
-msgctxt "#31150"
-msgid "Repository"
-msgstr "Repository"
+msgctxt "#31202"
+msgid "Show music visualisation screen directly when playing song"
+msgstr "Show music visualisation screen directly when playing song"
 
-msgctxt "#31151"
-msgid "Unwatched music videos"
-msgstr "Unwatched music videos"
+msgctxt "#31203"
+msgid "The placement and type of submenu"
+msgstr "The placement and type of submenu"
 
-msgctxt "#31152"
-msgid "Random music videos"
-msgstr "Random music videos"
+msgctxt "#31204"
+msgid "Home screen, icons"
+msgstr "Widgets, icons"
 
-msgctxt "#31153"
-msgid "You do not have any add-ons of this type installed. Enter the add-on browser to download add-ons created by our community."
-msgstr "You do not have any add-ons of this type installed. Enter the add-on browser to download add-ons created by our community."
+msgctxt "#31205"
+msgid "Leftbar, list"
+msgstr "Leftbar, list"
 
-msgctxt "#31154"
-msgid "Press OK to switch between locations"
-msgstr "Press OK to switch between locations"
+msgctxt "#31206"
+msgid "Leftbar, icons"
+msgstr "Leftbar, icons"
 
-msgctxt "#31155"
-msgid "No bookmarks created yet."
-msgstr "No bookmarks created yet."
+msgctxt "#31207"
+msgid "Date"
+msgstr "Date"
 
-msgctxt "#31156"
-msgid "Choose background pattern"
-msgstr "Choose background pattern"
+msgctxt "#31208"
+msgid "Reload skin"
+msgstr "Reload skin"
 
-msgctxt "#31157"
-msgid "Edit categories"
-msgstr "Edit categories"
+msgctxt "#31209"
+msgid "Addons user"
+msgstr "Addons user"
 
-msgctxt "#31158"
-msgid "Touch mode"
-msgstr "Touch mode"
+msgctxt "#31210"
+msgid "Move items"
+msgstr "Move items"
 
-msgctxt "#31159"
-msgid "Artwork"
-msgstr "Artwork"
+msgctxt "#31211"
+msgid "Item"
+msgstr "Item"
 
-msgctxt "#31160"
-msgid "Show media flags"
-msgstr "Show media flags"
+msgctxt "#31212"
+msgid "Custom set of channels TV/Radio"
+msgstr "Custom set of channels TV/Radio"
 
-msgctxt "#31161"
-msgid "Numeric pad"
-msgstr "Numeric pad"
+msgctxt "#31213"
+msgid "Hide the main menu"
+msgstr "Hide the main menu"
+
+#: /xml/SkinSettings.xml
+msgctxt "#40037"
+msgid "Opacity for fanart as background"
+msgstr "Opacity for fanart as background"
+
+#: /xml/SkinSettings.xml
+msgctxt "#40038"
+msgid "0%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40039"
+msgid "5%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40040"
+msgid "10%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40041"
+msgid "15%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40042"
+msgid "20%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40043"
+msgid "25%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40044"
+msgid "30%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40045"
+msgid "35%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40046"
+msgid "40%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40047"
+msgid "45%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40048"
+msgid "50%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40049"
+msgid "55%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40050"
+msgid "60%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40051"
+msgid "65%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40052"
+msgid "70%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40053"
+msgid "75%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40054"
+msgid "80%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40055"
+msgid "85%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40056"
+msgid "90%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40057"
+msgid "95%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40058"
+msgid "100%"
+msgstr ""
+
+msgctxt "#45000"
+msgid "Mixed widgets add-ons: audio, video, photos, software"
+msgstr "Mixed widgets add-ons: audio, video, photos, software"
+
+msgctxt "#45001"
+msgid "Widget 1"
+msgstr "Widget 1"
+
+msgctxt "#45002"
+msgid "Widget 2"
+msgstr "Widget 2"
+
+msgctxt "#45003"
+msgid "Widget 3"
+msgstr "Widget 3"
+
+msgctxt "#45004"
+msgid "Widget 4"
+msgstr "Widget 4"
+
+msgctxt "#45005"
+msgid "Widget 5"
+msgstr "Widget 5"
+
+msgctxt "#45006"
+msgid "Widget 6"
+msgstr "Widget 6"
+
+msgctxt "#45007"
+msgid "Widget 7"
+msgstr "Widget 7"
+
+msgctxt "#45008"
+msgid "Widget 8"
+msgstr "Widget 8"
+
+msgctxt "#45009"
+msgid "MOD safonov_ivan"
+msgstr "MOD safonov_ivan"
+
+msgctxt "#45010"
+msgid "Widgets to fullscreen"
+msgstr "Widgets to fullscreen"
+
+msgctxt "#45011"
+msgid "Two panels of system buttons"
+msgstr "Две панели системных кнопок"
+
+msgctxt "#45012"
+msgid "Hide weather background icon"
+msgstr "Hide weather background icon"
+
+msgctxt "#45013"
+msgid "Hide background on category icons"
+msgstr "Hide background on category icons"
+
+msgctxt "#45014"
+msgid "Display name of selected item"
+msgstr "Display name of selected item"
+
+msgctxt "#45015"
+msgid "Media settings"
+msgstr "Media settings"
+
+msgctxt "#45016"
+msgid "TV & Radio"
+msgstr "TV & Radio"
+
+msgctxt "#45017"
+msgid "Widget settings"
+msgstr "Widget settings"

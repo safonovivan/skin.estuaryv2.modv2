@@ -112,10 +112,6 @@ msgctxt "#31025"
 msgid "No favourites found. You can add any item from media views to this list by using the context menu."
 msgstr "Список избранного пуст. Вы можете добавить сюда любой медиаконтент с помощью контекстного меню."
 
-msgctxt "#31026"
-msgid "Timeshift"
-msgstr "Таймшифт"
-
 msgctxt "#31028"
 msgid "Show fanart"
 msgstr "Показать фанарт"
@@ -222,7 +218,7 @@ msgstr "Автоматическая авторизация при запуск�
 
 msgctxt "#31061"
 msgid "Main menu items"
-msgstr "Элементы главного меню"
+msgstr "Главное меню"
 
 msgctxt "#31062"
 msgid "Choose weather fanart pack"
@@ -402,7 +398,7 @@ msgstr "Установить поставщика погоды"
 
 msgctxt "#31122"
 msgid "Unwatched TV Shows"
-msgstr "Не просмотренные сериалы"
+msgstr "Непросмотренные сериалы"
 
 msgctxt "#31123"
 msgid "Same director"
@@ -526,7 +522,7 @@ msgstr "Выберите фон"
 
 msgctxt "#31157"
 msgid "Edit categories"
-msgstr "Изменить категории"
+msgstr "Изменить подменю"
 
 msgctxt "#31158"
 msgid "Touch mode"
@@ -543,3 +539,252 @@ msgstr "Флаги сведений"
 msgctxt "#31161"
 msgid "Numeric pad"
 msgstr "Цифровая клавиатура"
+
+msgctxt "#31200"
+msgid "Widgets"
+msgstr "Виджеты"
+
+msgctxt "#31201"
+msgid "Next track"
+msgstr "Следующая композиция"
+
+# EXTENDED ADDED VALUE SAFONOV_IVAN
+
+msgctxt "#31202"
+msgid "Show music visualisation screen directly when playing song"
+msgstr "Artist Slideshow на весь экран при проигрывани музыки"
+
+msgctxt "#31203"
+msgid "The placement and type of submenu"
+msgstr "Размещение и вид подменю"
+
+msgctxt "#31204"
+msgid "Home screen, icons"
+msgstr "Главный экран, значки"
+
+msgctxt "#31205"
+msgid "Leftbar, list"
+msgstr "Шторка слева, список"
+
+msgctxt "#31206"
+msgid "Leftbar, icons"
+msgstr "Шторка слева, значки"
+
+msgctxt "#31207"
+msgid "Date"
+msgstr "Текущая дата"
+
+msgctxt "#31208"
+msgid "Reload skin"
+msgstr "Обновить обложку"
+
+msgctxt "#31209"
+msgid "Addons user"
+msgstr "Пользовательский набор дополнений"
+
+msgctxt "#31210"
+msgid "Move items"
+msgstr "Перемещение кнопок меню"
+
+msgctxt "#31211"
+msgid "Item"
+msgstr "Позиция"
+
+msgctxt "#31212"
+msgid "Custom set of channels TV/Radio"
+msgstr "Пользовательский набор каналов ТВ/Радио"
+
+msgctxt "#31213"
+msgid "Hide the main menu"
+msgstr "Скрыть главное меню"
+
+#: /xml/SkinSettings.xml
+msgctxt "#40037"
+msgid "Opacity for fanart as background"
+msgstr "Прозрачность фона фанарта виджетов"
+
+#: /xml/SkinSettings.xml
+msgctxt "#40038"
+msgid "0%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40039"
+msgid "5%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40040"
+msgid "10%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40041"
+msgid "15%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40042"
+msgid "20%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40043"
+msgid "25%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40044"
+msgid "30%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40045"
+msgid "35%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40046"
+msgid "40%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40047"
+msgid "45%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40048"
+msgid "50%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40049"
+msgid "55%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40050"
+msgid "60%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40051"
+msgid "65%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40052"
+msgid "70%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40053"
+msgid "75%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40054"
+msgid "80%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40055"
+msgid "85%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40056"
+msgid "90%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40057"
+msgid "95%"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#40058"
+msgid "100%"
+msgstr ""
+
+msgctxt "#31214"
+msgid "Widget of the playlist"
+msgstr "Виджет плейлиста"
+
+msgctxt "#31215"
+msgid "Widget"
+msgstr "Виджет"
+
+msgctxt "#45000"
+msgid "Mixed widgets add-ons: audio, video, photos, software"
+msgstr "Смешанные виджеты дополнений: аудио, видео, фото, программные"
+
+msgctxt "#45001"
+msgid "Widget 1"
+msgstr "Виджет 1"
+
+msgctxt "#45002"
+msgid "Widget 2"
+msgstr "Виджет 2"
+
+msgctxt "#45003"
+msgid "Widget 3"
+msgstr "Виджет 3"
+
+msgctxt "#45004"
+msgid "Widget 4"
+msgstr "Виджет 4"
+
+msgctxt "#45005"
+msgid "Widget 5"
+msgstr "Виджет 5"
+
+msgctxt "#45006"
+msgid "Widget 6"
+msgstr "Виджет 6"
+
+msgctxt "#45007"
+msgid "Widget 7"
+msgstr "Виджет 7"
+
+msgctxt "#45008"
+msgid "Widget 8"
+msgstr "Виджет 8"
+
+msgctxt "#45009"
+msgid "MOD safonov_ivan"
+msgstr "MOD safonov_ivan"
+
+msgctxt "#45010"
+msgid "Widgets to fullscreen"
+msgstr "Виджеты на весь экран"
+
+msgctxt "#45011"
+msgid "Two panels of system buttons"
+msgstr "Две панели системных кнопок"
+
+msgctxt "#45012"
+msgid "Hide weather background icon"
+msgstr "Скрыть фон на иконках погоды"
+
+msgctxt "#45013"
+msgid "Hide background on category icons"
+msgstr "Скрыть фон на иконках категорий"
+
+msgctxt "#45014"
+msgid "Display name of selected item"
+msgstr "Отображать название выбранного пункта"
+
+msgctxt "#45015"
+msgid "Media settings"
+msgstr "Настройки медиатеки"
+
+msgctxt "#45016"
+msgid "TV & Radio"
+msgstr "ТВ и Радио"
+
+msgctxt "#45017"
+msgid "Widget settings"
+msgstr "Настройки виджетов"
+
